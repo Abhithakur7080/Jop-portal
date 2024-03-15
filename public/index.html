@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Firebase App</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <!-- Compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+  </head>
+  <body>
+    <nav>
+      <div class="nav-wrapper #283593 indigo darken-3">
+        <a href="#"  style="margin-left: 20px; text-align: left; font-size: 2rem;">Job Portal</a>
+        <ul id="nav-mobile" class="right">
+          <li><a id="login" href="#modal2" class="modal-trigger">Login</a></li>
+          <li><a id="signup" href="#modal1" class="modal-trigger">Signup</a></li>
+          <li><a id="logout" onclick="logout()">Logout</a></li>
+        </ul>
+      </div>
+    </nav>
+    <!-- Signup Modal Structure -->
+    <div id="modal1" class="modal">
+      <div class="modal-content">
+        <h4 style="text-align: center">Signup</h4>
+        <form autocomplete="off" onsubmit="signup(event)">
+          <input
+            type="email"
+            id="signupEmail"
+            placeholder="Enter your email"
+            autocomplete="email"
+          />
+          <input
+            type="password"
+            id="signupPassword"
+            placeholder="Enter your password"
+            autocomplete="current-password"
+          />
+          <button
+            type="submit"
+            class="btn waves-effect #283593 indigo darken-3"
+          >
+            Submit
+          </button>
+        </form>
+        <div
+          style="
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            gap: 20px;
+          "
+        >
+          <button
+            class="btn"
+            onclick="loginwithGoogle()"
+            style="
+              background: transparent;
+              color: #fff;
+              border: none;
+              outline: none;
+              cursor: pointer;
+              width: 350px;
+              background-color: crimson;
+              margin-top: 10px;
+            "
+          >
+            <i class="ri-google-fill"> connect with Google</i>
+          </button>
+          <button
+            class="btn"
+            onclick="loginwithFacebook()"
+            style="
+              background: transparent;
+              color: #fff;
+              border: none;
+              outline: none;
+              cursor: pointer;
+              width: 350px;
+              background-color: royalblue;
+            "
+          >
+            <i class="ri-facebook-circle-fill"> connect with Facebook</i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- Login Modal Structure -->
+    <div id="modal2" class="modal">
+      <div class="modal-content">
+        <h4 style="text-align: center">Login</h4>
+        <form autocomplete="off" onsubmit="login(event)">
+          <input
+            type="email"
+            id="loginEmail"
+            placeholder="Enter your email"
+            autocomplete="email"
+          />
+          <input
+            type="password"
+            id="loginPassword"
+            placeholder="Enter your password"
+            autocomplete="current-password"
+          />
+          <button
+            type="submit"
+            class="btn waves-effect #283593 indigo darken-3"
+          >
+            Submit
+          </button>
+        </form>
+        <div
+          style="
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            gap: 20px;
+          "
+        >
+          <button
+            class="btn"
+            onclick="loginwithGoogle()"
+            style="
+              background: transparent;
+              color: #fff;
+              border: none;
+              outline: none;
+              cursor: pointer;
+              width: 350px;
+              background-color: crimson;
+              margin-top: 10px;
+            "
+          >
+            <i class="ri-google-fill"> Login with Google</i>
+          </button>
+          <button
+            class="btn"
+            onclick="loginwithFacebook()"
+            style="
+              background: transparent;
+              color: #fff;
+              border: none;
+              outline: none;
+              cursor: pointer;
+              width: 350px;
+              background-color: royalblue;
+            "
+          >
+            <i class="ri-facebook-circle-fill"> Login with Facebook</i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- edit profile Modal Structure -->
+    <div id="modal3" class="modal">
+      <div class="modal-content">
+        <h4 style="text-align: center">Edit your details</h4>
+        <div class="file-field input-field">
+          <div class="btn-large #283593 indigo darken-3" style="width: 100%">
+            <span
+              style="
+                display: flex;
+                align-items: center;
+                font-size: larger;
+                justify-content: center;
+                gap: 20px;
+              "
+              ><i class="ri-image-fill"></i> Profile Picture</span
+            >
+            <input type="file" accept="image/*" onchange="uploadImage(event)" />
+          </div>
+          <div class="file-path-wrapper">
+            <input class="file-path validate" type="text" />
+          </div>
+        </div>
+        <form
+          autocomplete="off"
+          id="edit-profile"
+          onsubmit="updateUserProfile(event)"
+        >
+          <input
+            type="email"
+            id="profileEmail"
+            placeholder="Enter your email"
+            autocomplete="email"
+          />
+          <input
+            type="text"
+            id="name"
+            placeholder="Enter your name"
+            autocomplete="name"
+          />
+          <input type="tel" id="phone" placeholder="Enter your phone number" />
+          <input
+            type="text"
+            id="speciality"
+            placeholder="Enter your speciality"
+            autocomplete="name"
+          />
+          <input
+            type="url"
+            id="portfolioUrl"
+            placeholder="Enter your portfolio url"
+            autocomplete="url"
+          />
+          <input
+            type="text"
+            id="experience"
+            placeholder="Enter your experience"
+            autocomplete="name"
+          />
+          <input
+            type="password"
+            id="profilePassword"
+            placeholder="Enter your password"
+            autocomplete="current-password"
+          />
+
+          <button
+            type="submit"
+            class="btn waves-effect #283593 indigo darken-3"
+          >
+            Submit
+          </button>
+        </form>
+      </div>
+    </div>
+    <div class="center" style="margin-bottom: 100px">
+      <h1>Your account Details</h1>
+      <img
+        id="profileImg"
+        src="user.png"
+        alt="noImage"
+        class="circle"
+        style="width: 50%; height: auto"
+      />
+      <div class="userDetails"></div>
+    </div>
+
+    <table id="table" style="display: none;">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Speciality</th>
+          <th>Experience</th>
+          <th>portfolio</th>
+        </tr>
+      </thead>
+
+      <tbody id="tbody">
+        
+      </tbody>
+    </table>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-storage-compat.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        let elems = document.querySelectorAll(".modal");
+        let instances = M.Modal.init(elems);
+      });
+    </script>
+    <script>
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyCOUh9tdmBCzcWb-eCkLzo1XxQGCpcH5YU",
+        authDomain: "job-portal-1f6fc.firebaseapp.com",
+        projectId: "job-portal-1f6fc",
+        storageBucket: "job-portal-1f6fc.appspot.com",
+        messagingSenderId: "562331802717",
+        appId: "1:562331802717:web:82a5cb6ea8161797abc1b4",
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
+    <script src="./js/auth.js"></script>
+    <script src="./js/firestore-db.js"></script>
+  </body>
+</html>
