@@ -47,7 +47,7 @@ function getUserInfoRealTime(userId) {
         if (userInfo) {
           userDetails.innerHTML = `
           <ul class="collection">
-      <li class="collection-item"><h1>${userInfo.name}</h1></li>
+      <li class="collection-item"><h1>${userInfo.name?userInfo.name:"user"}</h1></li>
       <li class="collection-item">${userInfo.email}</li>
       <li class="collection-item">${userInfo.phone}</li>
       <li class="collection-item">${userInfo.speciality}</li>

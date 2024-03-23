@@ -13,7 +13,7 @@ async function signup(e) {
       .auth()
       .createUserWithEmailAndPassword(email.value, password.value);
       await result.user.updateProfile({
-        displayName: "Abhijeet"
+        displayName: "user"
       })
       // await result.user.sendEmailVerification()
       CreateUserCollection(result.user)
