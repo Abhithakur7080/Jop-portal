@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="Senza-titolo-1.png" type="image/x-icon" />
     <title>Firebase App</title>
     <link
       href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
@@ -16,11 +17,33 @@
   </head>
   <body>
     <nav>
-      <div class="nav-wrapper #283593 indigo darken-3">
-        <a href="#"  style="margin-left: 20px; text-align: left; font-size: 2rem;">Job Portal</a>
+      <div
+        class="nav-wrapper #283593 indigo darken-3"
+        style="
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        "
+      >
+        <div style="display: flex; align-items: center; padding-left: 20px;">
+          <img src="Senza-titolo-1.png" alt="logo" width="50px" />
+          <h6
+            style="
+              margin-left: 10px;
+              text-align: left;
+              font-size: 2rem;
+              line-height: 5px;
+            "
+          >
+            Job Portal
+          </h6>
+        </div>
+
         <ul id="nav-mobile" class="right">
           <li><a id="login" href="#modal2" class="modal-trigger">Login</a></li>
-          <li><a id="signup" href="#modal1" class="modal-trigger">Signup</a></li>
+          <li>
+            <a id="signup" href="#modal1" class="modal-trigger">Signup</a>
+          </li>
           <li><a id="logout" onclick="logout()">Logout</a></li>
         </ul>
       </div>
@@ -243,7 +266,7 @@
       <div class="userDetails"></div>
     </div>
 
-    <table id="table" style="display: none;">
+    <table id="table" style="display: none">
       <thead>
         <tr>
           <th>Name</th>
@@ -255,9 +278,7 @@
         </tr>
       </thead>
 
-      <tbody id="tbody">
-        
-      </tbody>
+      <tbody id="tbody"></tbody>
     </table>
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
